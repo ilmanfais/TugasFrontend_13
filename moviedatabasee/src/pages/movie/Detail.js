@@ -10,6 +10,7 @@ const Detail = () => {
     const [ genres, setGenres] = useState([])
 
     const url_image = `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+    const backdropUrl = `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`;
 
     const getDetail = async(id) => {
         const data = await GetDetailMovie(id)
@@ -25,7 +26,7 @@ const Detail = () => {
 
     return (
         <DetailStyle className="container"  >
-            <section className="hero">
+             <section className="hero" style={{ backgroundImage: `url(${backdropUrl})` }}>
                <div className="hero__left">
                     <h2 className="hero__title">{movie.original_title}</h2>
                     <h3 className="hero__tagline">{movie.tagline}</h3>
@@ -81,7 +82,7 @@ const DetailStyle = styled.div`
     .hero__genre {
         color: #fff;
         margin-bottom: 0.4rem;
-        font-size: 1rem;
+        font-size: 2rem;
         font-weight: bold;
     }
 
